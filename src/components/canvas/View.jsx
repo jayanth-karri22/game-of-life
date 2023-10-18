@@ -10,7 +10,8 @@ export const Common = ({ color }) => (
     <ambientLight intensity={0.5} />
     <pointLight position={[20, 30, 10]} intensity={1} />
     <pointLight position={[-10, -10, -10]} color='blue' />
-    <PerspectiveCamera makeDefault fov={40} position={[0, 0, 6]} />
+    <PerspectiveCamera makeDefault fov={40} position={[0, 10, 15]} />
+    <gridHelper args={[20, 20, 'red', 'blue']} />
   </Suspense>
 )
 
@@ -24,7 +25,7 @@ const View = forwardRef(({ children, orbit, ...props }, ref) => {
       <Three>
         <ViewImpl track={localRef}>
           {children}
-          {orbit && <OrbitControls />}
+          {orbit && <OrbitControls enableZoom />}
         </ViewImpl>
       </Three>
     </>
