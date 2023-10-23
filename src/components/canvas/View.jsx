@@ -4,14 +4,14 @@ import { forwardRef, Suspense, useImperativeHandle, useRef } from 'react'
 import { OrbitControls, PerspectiveCamera, View as ViewImpl } from '@react-three/drei'
 import { Three } from '@/helpers/components/Three'
 
-export const Common = ({ color }) => (
+export const Common = ({ color, show }) => (
   <Suspense fallback={null}>
     {color && <color attach='background' args={[color]} />}
     <ambientLight intensity={0.5} />
     <pointLight position={[20, 30, 10]} intensity={1} />
     <pointLight position={[-10, -10, -10]} color='blue' />
     <PerspectiveCamera makeDefault fov={40} position={[0, 10, 15]} />
-    <gridHelper args={[20, 20, 'red', 'blue']} />
+    {show && <gridHelper args={[20, 20, 'red', 'blue']} />}
   </Suspense>
 )
 
