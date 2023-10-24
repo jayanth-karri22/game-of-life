@@ -22,7 +22,7 @@ export const OneDimensionalAutomata = () => {
   const { dimension, initialCells, randomize } = useControls({
     dimension: {
       options: ['1D', '1DStacked', '2D', '3D'],
-      value: '1DStacked',
+      value: '2D',
     },
     initialCells: {
       value: '0'.repeat(gridSize) + '1' + '0'.repeat(gridSize),
